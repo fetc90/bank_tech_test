@@ -1,4 +1,3 @@
-
 def add_deposit_1000
   Timecop.freeze(Time.local(2012, 01, 10))
   bank = Bank.new

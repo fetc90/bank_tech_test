@@ -6,6 +6,14 @@ attr_reader :balance, :total_transactions
     @total_transactions = []
   end
 
+  def statement
+    heading = "date || credit || debit || balance"
+    puts heading
+    total_transactions.reverse.each do |transaction|
+      puts transaction.join(" || ")
+    end 
+  end
+
   def deposit(amount)
     @balance += amount
     store_transaction(amount)
@@ -16,19 +24,14 @@ attr_reader :balance, :total_transactions
     store_transaction(amount)
   end 
 
-  def date_of_transaction
-    Time.now.strftime('%d-%m-%Y')
+  def date
+    Time.now.strftime('%d/%m/%Y')
   end 
 
   def store_transaction(amount)
-    current_transaction = []
-    current_transaction.push(date_of_transaction, amount, @balance)
-    @total_transactions.push(current_transaction)
+    transaction = []
+    transaction.push(date, amount, @balance)
+    @total_transactions.push(transaction)
   end 
-
-  def statement
-    'date || credit || debit || balance'
-  end
-
-
-end
+end 
+ 
