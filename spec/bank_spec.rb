@@ -10,29 +10,33 @@ describe 'bank' do
   end 
 
   context 'when making a deposit' do 
-    Timecop.freeze(Time.local(2012, 01, 10))
-    
     it 'adds the deposit to the account total' do 
       bank.deposit(1000)
       expect(bank.balance).to eq(1000)
     end 
 
     it 'records the date the deposit was added, the amount and the new balance' do
-        expect(bank.single_transaction).to eq(['10-01-2012', 1000, 1000]) 
+        Timecop.freeze(Time.local(2012, 01, 10))
+        expect(bank.store_current_transaction(1000)).to eq(['10-01-2012', 1000, 1000]) 
     end 
-
   end 
 
   context 'when making a withdrawal' do 
-
     it 'subtracts the withdrawal from account total' do 
       add_deposit
       bank.withdraw(500)
       expect(bank.balance).to eq(500)
     end 
-  end
 
-end 
+    it 'records the date the withdrawal was made, the amount and the new balance' do
+        Timecop.freeze(Time.local(2012, 01, 14))
+        expect(bank.store_current_transaction(500)).to eq(['14-01-2012', 500, 500]) 
+    end 
+  end 
+
+end
+
+
  
 
 #   it 'prints a bank statement' do 

@@ -1,3 +1,5 @@
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/test_coverage)](https://codeclimate.com/github/codeclimate/codeclimate/test_coverage) [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
+
 # The Task
 
 Create a simple programme to output a user's bank statement.
@@ -52,3 +54,5 @@ date || credit || debit || balance
 ### Process
 
 Realised I wasn't adhering to the specification in terms of recording time the deposit was added. 
+
+I had a Bank class and realised I needed to seperate it into two classes: Bank and Account. 
