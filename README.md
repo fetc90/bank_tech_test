@@ -12,8 +12,15 @@ In your terminal:
 - require './lib/bank.rb'
 ```
 
-To test the files, run RSpec after you have bundle installed. 
-For high code quality, this programme uses Rubocop, Simplecov and Code Climate.
+### Testing 
+ 
+```
+- Fork/Clone this repo
+- Bundle install
+- Rspec
+```
+
+To ensure high code quality, this programme uses Rubocop, Simplecov and Code Climate.
 
 ## Specification
 
