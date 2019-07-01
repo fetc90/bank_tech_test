@@ -44,11 +44,10 @@ attr_reader :balance, :total_transactions
   end 
 
   private
-
+  
   def date
     Time.now.strftime('%d/%m/%Y')
   end 
-
 end 
 
 

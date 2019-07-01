@@ -1,9 +1,11 @@
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-gem 'rspec'
-gem 'rubocop', '~> 0.72.0'
 gem 'ruby'
-gem 'simplecov', '~> 0.16.1'
-gem 'timecop', '~> 0.9.1'
+gem 'rubocop'
+gem 'timecop'
+
+group :test do
+    gem 'rspec'
+    gem 'simplecov', require: false
+    gem 'simplecov-console', require: false
+  end
