@@ -3,34 +3,42 @@ require 'timecop'
 require_relative 'spec_helpers'
 
 describe 'bank' do 
-  bank = Bank.new 
+  bank = Bank.new
 
   it 'has an account balance of zero by default' do 
     expect(bank.balance).to eq(0)
   end 
 
-  context 'when making a deposit' do 
-    it 'adds the deposit to the account total' do 
+  it 'stores all transactions made' do 
+    bank.deposit(500)
+    bank.deposit(200)
+    expect(bank.total_transactions).to eq([["10-01-2012", 500, 500], ["10-01-2012", 200, 700]] )
+  end 
+
+  context '#deposit' do 
+    Timecop.freeze(Time.local(2012, 01, 10))
+
+    it 'adds the deposit amount to the account total' do 
+      bank = Bank.new
       bank.deposit(1000)
       expect(bank.balance).to eq(1000)
     end 
 
-    it 'records the date the deposit was added, the amount and the new balance' do
-        Timecop.freeze(Time.local(2012, 01, 10))
-        expect(bank.store_current_transaction(1000)).to eq(['10-01-2012', 1000, 1000]) 
+    it 'records the date the transaction was made, the amount and the new balance' do 
+      expect(bank.total_transactions).to eq([['10-01-2012', 1000, 1000]]) 
     end 
   end 
 
-  context 'when making a withdrawal' do 
+  context '#withdraw' do 
     it 'subtracts the withdrawal from account total' do 
-      add_deposit
+      add_deposit_1000
+      Timecop.freeze(Time.local(2012, 01, 14))
       bank.withdraw(500)
       expect(bank.balance).to eq(500)
     end 
 
     it 'records the date the withdrawal was made, the amount and the new balance' do
-        Timecop.freeze(Time.local(2012, 01, 14))
-        expect(bank.store_current_transaction(500)).to eq(['14-01-2012', 500, 500]) 
+        expect(bank.total_transactions).to eq([['10-01-2012', 1000, 1000],['14-01-2012', 500, 500]]) 
     end 
   end 
 

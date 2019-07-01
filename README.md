@@ -2,11 +2,13 @@
 
 # The Task
 
-Create a simple programme to output a user's bank statement.
+Create a simple programme in Ruby to output a user's bank statement to use in IRB. The goal of this challenge is to apply the best practises to simulate a tech test. As the time is limitied, the focus is on code quality, not necessarily building all the features. To ensure high code quality, this programme uses Rubocop, Simplecov and Code Climate.
+
+This programme allows a user to deposit and withdraw an amount from their account. The details of each transaction - the date, the amount and the new account balance - are also stored.
 
 ### Quick Setup 
 
-In your terminal:
+In terminal:
 ```
 - Fork/Clone this repo
 - Bundle install
@@ -21,8 +23,6 @@ In your terminal:
 - Bundle install
 - Rspec
 ```
-
-To ensure high code quality, this programme uses Rubocop, Simplecov and Code Climate.
 
 ## Specification
 
@@ -47,6 +47,17 @@ date || credit || debit || balance
 13/01/2012 || 2000.00 || || 3000.00
 10/01/2012 || 1000.00 || || 1000.00
 ```
+
+
+
+Date | Credit | Debit | Balance
+ ---- | ------ | ----- | ------
+14/01/2012 |  | 500.00 | 2500.00
+13/01/2012 | 2000.00 |  | 3000.00
+10/01/2012 | 1000.00 |   | 1000.00
+
+
+
 
 ![Tracking pixel](https://githubanalytics.herokuapp.com/course/individual_challenges/bank_tech_test.md)
 
