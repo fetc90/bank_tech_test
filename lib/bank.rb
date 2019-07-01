@@ -16,22 +16,40 @@ attr_reader :balance, :total_transactions
 
   def deposit(amount)
     @balance += amount
-    store_transaction(amount)
+    store_credit_transaction(amount)
   end 
 
   def withdraw(amount)
     @balance -= amount
-    store_transaction(amount)
-  end 
-
-  def date
-    Time.now.strftime('%d/%m/%Y')
+    store_debit_transaction(amount)
   end 
 
   def store_transaction(amount)
     transaction = []
     transaction.push(date, amount, @balance)
+  end 
+
+  def store_credit_transaction(amount)
+    transaction = []
+    transaction.push(date, amount, @balance)
+    transaction.insert(2, '')
     @total_transactions.push(transaction)
   end 
+
+  def store_debit_transaction(amount)
+    transaction = []
+    transaction.push(date, amount, @balance)
+    transaction.insert(1, '')
+    @total_transactions.push(transaction)
+  end 
+
+  private
+
+  def date
+    Time.now.strftime('%d/%m/%Y')
+  end 
+
 end 
+
+
  

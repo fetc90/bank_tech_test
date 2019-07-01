@@ -12,15 +12,8 @@ describe 'bank' do
   it 'stores all transactions made' do 
     bank.deposit(500)
     bank.deposit(200)
-    expect(bank.total_transactions).to eq([["10/01/2012", 500, 500], ["10/01/2012", 200, 700]] )
+    expect(bank.total_transactions).to eq([["10/01/2012", 500, "", 500], ["10/01/2012", 200, "", 700]])
   end 
-
-  # it 'prints a bank statement' do 
-  #   expect(bank.statement).to eq('
-  #     date || credit || debit || balance
-  #     10/01/2012 || 500 || || 500 
-  #     10/01/2012 || 200 || || 700') 
-  # end 
 
   context '#deposit' do 
     Timecop.freeze(Time.local(2012, 01, 10))
@@ -32,7 +25,7 @@ describe 'bank' do
     end 
 
     it 'records the date the transaction was made, the amount and the new balance' do 
-      expect(bank.total_transactions).to eq([['10/01/2012', 1000, 1000]]) 
+      expect(bank.total_transactions).to eq([["10/01/2012", 1000, "", 1000]]) 
     end 
   end 
 
@@ -45,7 +38,7 @@ describe 'bank' do
     end 
 
     it 'records the date the withdrawal was made, the amount and the new balance' do
-        expect(bank.total_transactions).to eq([['10/01/2012', 1000, 1000],['14/01/2012', 500, 500]]) 
+        expect(bank.total_transactions).to eq([["10/01/2012", 1000, "", 1000], ["14/01/2012", "", 500, 500]]) 
     end 
   end 
 end
