@@ -8,8 +8,9 @@ The goal of this challenge is to apply the best practises, including clean code 
 
 This programme allows a user to deposit and withdraw an amount from their account and return a bank statement with the details of each transaction. 
 
+![alt text](images/irb_screenshot.png)
+
 ### Technlogies
-----
 
 This programme is written in Ruby and tested with RSpec and Timecop. To ensure high code quality, I used Rubocop as a linter, Simplecov for test coverage and Code Climate for readability.
 
@@ -28,15 +29,12 @@ This programme is written in Ruby and tested with RSpec and Timecop. To ensure h
 - Bundle install
 - Rspec
 ```
-----
-
 
 # My Process
 
-I was able to output the user's statement however I need to work on formatting the table. At the moment, the transactions fall under the credit column instead of the debit if the transaction is a deposit.
+I spent the first hour reading the criteria, setting up the testing environment and starting on the README. I started with writing the simplest tests - depositing and withdrawing - and after they passed, I added in the timestamp. 
 
-![alt text](images/irb_screenshot.png)
-
+I used the gem Timecop to freeze the time according to the criteria but in hindsight I took the criteria too literally. I didn't need to save the dates in my tests to be exactly what was written. I also went back to planning and drew the table out clearly as I realised I had initially missed the differentiation between the Debit and Credit columns. 
 
 Date | Credit | Debit | Balance
  ---- | ------ | ----- | ------
@@ -44,6 +42,9 @@ Date | Credit | Debit | Balance
 13/01/2012 | 2000.00 |  | 3000.00
 10/01/2012 | 1000.00 |   | 1000.00
 
+If I had more time, I would seperate the bank class into at least one other class, if not two, as the code I have at the moment is repetative and a couple of methods in relation to storing the transactions are longer than I would like. I would draw a class diagram to clearly differentiate the methods for effective encapsulation. Instead of having just the bank class, I would add an account and transaction class.  
+
+I will set up a timer for the next challenge and write my goals for each 30 minute time block in the git wiki. After the time is up I will document what I acheived. 
 
 
 ## Specification
