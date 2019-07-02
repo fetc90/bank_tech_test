@@ -31,7 +31,5 @@ class Bank
   def print_statement
     log = @transaction_history
     @statement.print(log)
-  end 
-
-end 
-  
+  end
+end

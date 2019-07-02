@@ -1,27 +1,28 @@
-# Records the date, amount and updated balance. 
+# frozen_string_literal: true
+
+# Records the date, amount and updated balance.
 # If transaction is deposit, add " " on second index
 # If transaction is withdrawal, add " " on first index
-# Formats numbers 
+# Formats numbers
 
-class Transaction 
-  
+class Transaction
   def initialize
     @history = []
-  end 
+  end
 
   def credit(amount, updated_balance)
     current = []
     current.push(date, '%.2f' % amount, '%.2f' % updated_balance)
     current.insert(2, '')
     @history << current
-  end 
+  end
 
   def debit(amount, updated_balance)
     current = []
     current.push(date, '%.2f' % amount, '%.2f' % updated_balance)
     current.insert(1, '')
     @history << current
-  end 
+  end
 
   private
 
