@@ -1,8 +1,7 @@
-require_relative 'spec_helpers'
+require_relative 'transaction'
 require 'timecop'
 
 describe 'Transaction' do 
-  subject(:transaction) { described_class.new }
   let(:bank) { double :bank }
 
   before do 

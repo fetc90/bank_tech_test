@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require './lib/bank'
+require './lib/transaction'
 require 'timecop'
 require_relative 'spec_helpers'
 

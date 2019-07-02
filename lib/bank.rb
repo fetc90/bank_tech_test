@@ -3,58 +3,35 @@
 # Bank class allows user to deposit and withdraw amount
 # and print statement in table in IRB.
 
-require './lib/transaction'
+require_relative 'transaction'
+require_relative 'statement'
 
 class Bank
-  attr_reader :balance, :total_transactions, :transaction
+  attr_accessor :balance, :transaction, :statement, :transaction_history
 
   def initialize(balance = 0)
-    @balance = balance
-    @total_transactions = []
+    @balance = 0
     @transaction = Transaction.new
-  end
-
-  def statement
-    heading = 'date || credit || debit || balance'
-    puts heading
-    total_transactions.reverse.each do |transaction|
-      puts transaction.join(' || ')
-    end
+    @statement = Statement.new
+    @transaction_history = []
   end
 
   def deposit(amount)
-    @transaction.store(amount)
-    # @balance += amount
-    # store_credit_transaction(amount)
+    updated_balance = @balance += amount
+    current_transaction = @transaction.credit(amount, updated_balance)
+    @transaction_history << current_transaction
   end
 
   def withdraw(amount)
-    @balance -= amount
-    store_debit_transaction(amount)
+    updated_balance = @balance -= amount
+    current_transaction = @transaction.debit(amount, updated_balance)
+    @transaction_history << current_transaction
   end
 
-  def store_transaction(amount)
-    transaction = []
-    transaction.push(date, amount, @balance)
-  end
+  def print_statement
+    log = @transaction_history
+    @statement.print(log)
+  end 
 
-  def store_credit_transaction(amount)
-    transaction = []
-    transaction.push(date, amount, @balance)
-    transaction.insert(2, '')
-    @total_transactions.push(transaction)
-  end
-
-  def store_debit_transaction(amount)
-    transaction = []
-    transaction.push(date, amount, @balance)
-    transaction.insert(1, '')
-    @total_transactions.push(transaction)
-  end
-
-  private
-
-  def date
-    Time.now.strftime('%d/%m/%Y')
-  end
-end
+end 
+  
