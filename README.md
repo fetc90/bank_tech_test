@@ -42,6 +42,11 @@ Date | Credit | Debit | Balance
 13/01/2012 | 2000.00 |  | 3000.00
 10/01/2012 | 1000.00 |   | 1000.00
 
+### How Programme Works
+The user creates a new Bank class in IRB. 
+They can add deposits to their account by using the command `bank.deposit(1000)` and similarly with withdraw. 
+When a transaction is made, this is stored in an array, adding the timestamp, the new bank account total and a space in index position either 2 or 3, depending if it is a credit or debit account. This is so when the bank statement is printed, the columns line up correctly.
+
 If I had more time, I would seperate the bank class into at least one other class, if not two, as the code I have at the moment is repetative and a couple of methods in relation to storing the transactions are longer than I would like. I would draw a class diagram to clearly differentiate the methods for effective encapsulation. Instead of having just the bank class, I would add an account and transaction class.  
 
 I will set up a timer for the next challenge and write my goals for each 30 minute time block in the git wiki. After the time is up I will document what I acheived. 
