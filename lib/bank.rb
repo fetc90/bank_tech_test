@@ -17,6 +17,16 @@ class Bank
   end
 
   def deposit(amount)
+    @balance += amount
+  end 
+
+  def store_transaction
+    balance = @balance
+    @transaction.credit(amount, balance)
+  end 
+
+
+  def deposit(amount)
     updated_balance = @balance += amount
     current_transaction = @transaction.credit(amount, updated_balance)
     @transaction_history << current_transaction

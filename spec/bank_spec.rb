@@ -12,6 +12,13 @@ describe Bank do
     expect(subject.balance).to eq(0)
   end
 
+  context '#deposit' do 
+    it "updates the account with amount added" do 
+      subject.deposit(1000)
+      expect(subject.balance).to eq(1000)
+    end 
+  end 
+
 end 
 
 
