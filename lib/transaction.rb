@@ -6,22 +6,17 @@
 # Formats numbers
 
 class Transaction
-  def initialize
-    @history = []
-  end
 
-  def credit(amount, updated_balance)
+  def credit(amount, balance)
     current = []
-    current.push(date, '%.2f' % amount, '%.2f' % updated_balance)
+    current.push(date, '%.2f' % amount, '%.2f' % balance)
     current.insert(2, '')
-    @history << current
   end
 
-  def debit(amount, updated_balance)
+  def debit(amount, balance)
     current = []
-    current.push(date, '%.2f' % amount, '%.2f' % updated_balance)
+    current.push(date, '%.2f' % amount, '%.2f' % balance)
     current.insert(1, '')
-    @history << current
   end
 
   private

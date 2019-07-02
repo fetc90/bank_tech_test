@@ -18,25 +18,36 @@ class Bank
 
   def deposit(amount)
     @balance += amount
+    store_deposit(amount)
   end 
 
-  def store_transaction
+  def withdraw(amount)
+    @balance -= amount
+    store_withdrawal(amount)
+   end 
+
+  def store_deposit(amount)
     balance = @balance
     @transaction.credit(amount, balance)
   end 
 
+  def store_withdrawal(amount)
+    balance = @balance
+    @transaction.debit(amount, balance)
+  end 
 
-  def deposit(amount)
-    updated_balance = @balance += amount
-    current_transaction = @transaction.credit(amount, updated_balance)
-    @transaction_history << current_transaction
-  end
 
-  def withdraw(amount)
-    updated_balance = @balance -= amount
-    current_transaction = @transaction.debit(amount, updated_balance)
-    @transaction_history << current_transaction
-  end
+  # def deposit(amount)
+  #   updated_balance = @balance += amount
+  #   current_transaction = @transaction.credit(amount, updated_balance)
+  #   @transaction_history << current_transaction
+  # end
+
+  # def withdraw(amount)
+  #   updated_balance = @balance -= amount
+  #   current_transaction = @transaction.debit(amount, updated_balance)
+  #   @transaction_history << current_transaction
+  # end
 
   def print_statement
     log = @transaction_history
