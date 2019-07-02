@@ -3,12 +3,15 @@
 # Bank class allows user to deposit and withdraw amount
 # and print statement in table in IRB.
 
+require './lib/transaction'
+
 class Bank
-  attr_reader :balance, :total_transactions
+  attr_reader :balance, :total_transactions, :transaction
 
   def initialize(balance = 0)
     @balance = balance
     @total_transactions = []
+    @transaction = Transaction.new
   end
 
   def statement
@@ -20,8 +23,9 @@ class Bank
   end
 
   def deposit(amount)
-    @balance += amount
-    store_credit_transaction(amount)
+    @transaction.store(amount)
+    # @balance += amount
+    # store_credit_transaction(amount)
   end
 
   def withdraw(amount)
