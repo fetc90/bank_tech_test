@@ -63,4 +63,4 @@ If you are interested in reading about this project in more detail, visit this r
 * The Specification
 * My Process
 * My Refactor Process
-* Brief summary of how the programme works behind the scenes. 
+* Brief summary of how the programme works.
