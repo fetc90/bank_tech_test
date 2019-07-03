@@ -27,10 +27,10 @@ describe 'Transaction' do
     it 'records date of withdrawal, the amount taken and updated balance' do
       Timecop.freeze(Time.local(2012, 0o1, 14))
       bank.withdraw(500)
-     
+
       expect(transaction.debit(500, 500)).to eq([
-                                                     '14/01/2012', '', format('%.2f', 500), format('%.2f', 500)
-                                                   ])
+                                                  '14/01/2012', '', format('%.2f', 500), format('%.2f', 500)
+                                                ])
     end
   end
 end
