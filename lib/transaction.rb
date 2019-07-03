@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
-# Records the date, amount and updated balance.
-# If transaction is deposit, add " " on second index
-# If transaction is withdrawal, add " " on first index
-# Formats numbers
+# Records the date, amount and updated balance
+# and formats numbers
 
 class Transaction
   def credit(amount, balance)

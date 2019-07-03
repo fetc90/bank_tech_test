@@ -25,8 +25,9 @@ describe Bank do
       expect(subject.balance).to eq(500)
     end
   end
+end
 
-  # context '#print_statement' do
+# context '#print_statement' do
   #   it "prints full bank statement in reverse order" do
   #     subject.deposit(1000)
   #     subject.deposit(2000)
@@ -39,7 +40,6 @@ describe Bank do
   #     )
   #   end
   # end
-end
 
 #   it 'stores all transactions made' do
 #     bank.deposit(500)

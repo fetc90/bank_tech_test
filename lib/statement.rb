@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+# Can print user's bank statement in table with headings
+# and most recent transactions first
+
 class Statement
   attr_reader :history
 

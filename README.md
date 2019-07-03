@@ -2,77 +2,61 @@
 
 # The Task
 
-Create a programme that can output a user's bank statement to interact with via a REPL. 
+Create a programme that can output a user's bank statement to interact with via a REPL. The focus of this challenge is to apply the best practises, including clean code, TDD and progress documentation. The full challenge specification is in this repo's wiki here. 
 
-The goal of this challenge is to apply the best practises, including clean code and TDD, to simulate a tech test. As the time is limitied, the focus is on code quality, not necessarily building all the features. 
+## Setup Instructions
 
-This programme allows a user to deposit and withdraw an amount from their account and return a bank statement with the details of each transaction. 
+To use this programme, in the computer's terminal, run:
 
-![alt text](images/irb_screenshot.png)
-
-### Technlogies
-
-This programme is written in Ruby and tested with RSpec and Timecop. To ensure high code quality, I used Rubocop as a linter, Simplecov for test coverage and Code Climate for readability.
-
-### Quick Setup 
 ```
-- Fork/Clone this repo
-- Bundle install
+- git clone git@github.com:fetc90/bank_tech_test.git
+- cd bank
+- bundle install
 - IRB
 - require './lib/bank.rb'
 ```
+## To Use Programme
 
-### For Testing 
+Create an account:
+```
+bank = Bank.new
+``` 
+Make a desposit:
+```
+bank.deposit(1000)
+bank.deposit(2000)
+``` 
+Make a withdrawal:
+```
+bank.withdrawal(500)
+``` 
+Print bank statement:
+```
+bank.print_statement
+``` 
+
+![alt text](images/irb_screenshot.png)
+
+
+## Testing Instructions
+
+This programme is written in Ruby and tested with RSpec and Timecop. To ensure high code quality, I used Rubocop as a linter, Simplecov for test coverage and Code Climate for readability, which checks things like variable naming.
+
+
+To see this project's tests and the test coverage, run in the computer's terminal:
  
 ```
 - Fork/Clone this repo
-- Bundle install
+- cd bank
+- bundle install  
 - Rspec
 ```
 
 # My Process
 
-I spent the first hour reading the criteria, setting up the testing environment and starting on the README. I started with writing the simplest tests - depositing and withdrawing - and after they passed, I added in the timestamp. 
+If you are interested in reading about this project in more detail, visit this repo's wiki to find: 
 
-I used the gem Timecop to freeze the time according to the criteria but in hindsight I took the criteria too literally. I didn't need to save the dates in my tests to be exactly what was written. I also went back to planning and drew the table out clearly as I realised I had initially missed the differentiation between the Debit and Credit columns. 
-
-Date | Credit | Debit | Balance
- ---- | ------ | ----- | ------
-14/01/2012 |  | 500.00 | 2500.00
-13/01/2012 | 2000.00 |  | 3000.00
-10/01/2012 | 1000.00 |   | 1000.00
-
-### How Programme Works
-The user creates a new Bank class in IRB. 
-They can add deposits to their account by using the command `bank.deposit(1000)` and similarly with withdraw. 
-When a transaction is made, this is stored in an array, adding the timestamp, the new bank account total and a space in index position either 2 or 3, depending if it is a credit or debit account. This is so when the bank statement is printed, the columns line up correctly.
-
-If I had more time, I would seperate the bank class into at least one other class, if not two, as the code I have at the moment is repetative and a couple of methods in relation to storing the transactions are longer than I would like. I would draw a class diagram to clearly differentiate the methods for effective encapsulation. Instead of having just the bank class, I would add an account and transaction class.  
-
-I will set up a timer for the next challenge and write my goals for each 30 minute time block in the git wiki. After the time is up I will document what I acheived. 
-
-
-## Specification
-
-### Requirements
-
-* You should be able to interact with your code via a REPL like IRB or the JavaScript console.  (You don't need to implement a command line interface that takes input from STDIN.)
-* Deposits, withdrawal.
-* Account statement (date, amount, balance) printing.
-* Data can be kept in memory (it doesn't need to be stored to a database or anything).
-
-
-### Acceptance criteria
-
-**Given** a client makes a deposit of 1000 on 10-01-2012  
-**And** a deposit of 2000 on 13-01-2012  
-**And** a withdrawal of 500 on 14-01-2012  
-**When** she prints her bank statement  
-**Then** she would see
-
-```
-date || credit || debit || balance
-14/01/2012 || || 500.00 || 2500.00
-13/01/2012 || 2000.00 || || 3000.00
-10/01/2012 || 1000.00 || || 1000.00
-```
+* The Specification
+* My Process
+* My Refactor Process
+* Brief summary of how the programme works behind the scenes. 
