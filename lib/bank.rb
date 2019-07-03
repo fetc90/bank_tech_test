@@ -39,8 +39,7 @@ class Bank
 
     def print_statement
       history = @transaction_history
-      p "---------statement new---------------"
-      p statement = Statement.new(history)
+      statement = Statement.new(history)
       statement.print
     end
 end

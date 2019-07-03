@@ -39,6 +39,7 @@ describe Bank do
   #     )
   #   end
   # end
+
 end
 
 #   it 'stores all transactions made' do
