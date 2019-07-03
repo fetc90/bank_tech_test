@@ -52,9 +52,9 @@ To see this project's tests and the test coverage, run in the computer's termina
 - Rspec
 ```
 
-# My Process
+## My Approach
 
-Here is an overview of how my programme works
+Here is an overview of how my programme works behind the scenes:
 
 ![alt text](images/diagram.svg)
 
