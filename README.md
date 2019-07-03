@@ -54,6 +54,10 @@ To see this project's tests and the test coverage, run in the computer's termina
 
 # My Process
 
+Here is an overview of how my programme works
+
+![alt text](images/diagram.svg)
+
 If you are interested in reading about this project in more detail, visit this repo's wiki to find: 
 
 * The Specification
