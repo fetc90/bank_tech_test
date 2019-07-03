@@ -7,28 +7,27 @@ require 'timecop'
 require_relative 'spec_helpers'
 
 describe Bank do
-
   it 'has an account balance of zero by default' do
     expect(subject.balance).to eq(0)
   end
 
-  context '#deposit' do 
-    it "updates the account with amount added" do 
+  context '#deposit' do
+    it 'updates the account with amount added' do
       subject.deposit(1000)
       expect(subject.balance).to eq(1000)
-    end 
-  end 
+    end
+  end
 
-  context '#withdraw' do 
-    it "updates the account with amount subtracted" do 
+  context '#withdraw' do
+    it 'updates the account with amount subtracted' do
       subject.deposit(1000)
       subject.withdraw(500)
       expect(subject.balance).to eq(500)
-    end 
-  end 
+    end
+  end
 
   # context '#print_statement' do
-  #   it "prints full bank statement in reverse order" do 
+  #   it "prints full bank statement in reverse order" do
   #     subject.deposit(1000)
   #     subject.deposit(2000)
   #     subject.withdraw(500)
@@ -36,29 +35,11 @@ describe Bank do
   #       'date || credit || debit || balance
   #        14/01/2012 || || 500.00 || 2500.00
   #        13/01/2012 || 2000.00 || || 3000.00
-  #        10/01/2012 || 1000.00 || || 1000.00' 
+  #        10/01/2012 || 1000.00 || || 1000.00'
   #     )
   #   end
-  # end 
-
-end 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
+  # end
+end
 
 #   it 'stores all transactions made' do
 #     bank.deposit(500)

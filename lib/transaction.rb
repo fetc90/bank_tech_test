@@ -6,7 +6,6 @@
 # Formats numbers
 
 class Transaction
-
   def credit(amount, balance)
     current = []
     current.push(date, '%.2f' % amount, '%.2f' % balance)

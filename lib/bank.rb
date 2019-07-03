@@ -9,7 +9,7 @@ require_relative 'statement'
 class Bank
   attr_accessor :balance, :transaction, :statement, :transaction_history
 
-  def initialize(balance = 0)
+  def initialize(_balance = 0)
     @balance = 0
     @transaction = Transaction.new
     @statement = Statement.new
@@ -19,38 +19,25 @@ class Bank
   def deposit(amount)
     @balance += amount
     store_deposit(amount)
-  end 
+  end
 
   def withdraw(amount)
     @balance -= amount
     store_withdrawal(amount)
-   end 
+   end
 
   def store_deposit(amount)
     balance = @balance
     @transaction.credit(amount, balance)
-  end 
+  end
 
   def store_withdrawal(amount)
     balance = @balance
     @transaction.debit(amount, balance)
-  end 
-
-
-  # def deposit(amount)
-  #   updated_balance = @balance += amount
-  #   current_transaction = @transaction.credit(amount, updated_balance)
-  #   @transaction_history << current_transaction
-  # end
-
-  # def withdraw(amount)
-  #   updated_balance = @balance -= amount
-  #   current_transaction = @transaction.debit(amount, updated_balance)
-  #   @transaction_history << current_transaction
-  # end
-
-  def print_statement
-    log = @transaction_history
-    @statement.print(log)
   end
+
+  #   def print_statement
+  #     history = @transaction_history
+  #     @statement.print()
+  #   end
 end
