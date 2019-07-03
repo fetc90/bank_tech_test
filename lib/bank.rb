@@ -28,18 +28,18 @@ class Bank
   def store_deposit(amount)
     balance = @balance
     formatted_transaction = @transaction.credit(amount, balance)
-    @transaction_history << formatted_transaction 
+    @transaction_history << formatted_transaction
   end
 
   def store_withdrawal(amount)
     balance = @balance
     formatted_transaction = @transaction.debit(amount, balance)
-    @transaction_history << formatted_transaction 
+    @transaction_history << formatted_transaction
   end
 
-    def print_statement
-      history = @transaction_history
-      statement = Statement.new(history)
-      statement.print
-    end
+  def print_statement
+    history = @transaction_history
+    statement = Statement.new(history)
+    statement.print
+  end
 end

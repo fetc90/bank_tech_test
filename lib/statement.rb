@@ -1,18 +1,16 @@
 # frozen_string_literal: true
 
 class Statement
-
   attr_reader :history
 
   def initialize(history)
-    @history = history 
+    @history = history
   end
-    
+
   def print
     puts 'date || credit || debit || balance'
     @history.reverse.each do |transaction|
       puts transaction.join(' || ')
     end
-  end 
-
+  end
 end
