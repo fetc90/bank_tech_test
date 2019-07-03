@@ -12,7 +12,6 @@ class Bank
   def initialize(_balance = 0)
     @balance = 0
     @transaction = Transaction.new
-    @statement = Statement.new
     @transaction_history = []
   end
 
@@ -28,16 +27,20 @@ class Bank
 
   def store_deposit(amount)
     balance = @balance
-    @transaction.credit(amount, balance)
+    formatted_transaction = @transaction.credit(amount, balance)
+    @transaction_history << formatted_transaction 
   end
 
   def store_withdrawal(amount)
     balance = @balance
-    @transaction.debit(amount, balance)
+    formatted_transaction = @transaction.debit(amount, balance)
+    @transaction_history << formatted_transaction 
   end
 
-  #   def print_statement
-  #     history = @transaction_history
-  #     @statement.print()
-  #   end
+    def print_statement
+      history = @transaction_history
+      p "---------statement new---------------"
+      p statement = Statement.new(history)
+      statement.print
+    end
 end
